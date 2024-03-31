@@ -1,0 +1,864 @@
+<!--Yordanos Hailu
+    RCD/3394/2013
+    Section - H -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>online web development course</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+         /* Navigation bar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 30px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            transition: 250ms;
+            z-index: 2;
+        }
+        .nav-links{
+            position: absolute;
+            right: 0;
+            top: 5vh;
+            width: 60%;
+            height: 70vh;
+            background: #000;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            animation: menu_animation 500ms ease-in-out;
+        }
+        .show-navlinks{
+            display: flex;
+        }
+        @keyframes menu_animation{
+            from{
+                opacity: 0;
+                transform: translateX(100%);
+
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0%);
+
+            }
+
+        }
+        .logo{
+            text-decoration: none;
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: rgb(224, 224, 71);
+            transition: 250ms;
+        }
+
+        header ul li{
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        header ul li a{
+            text-decoration: none;
+            padding: 10px 30px;
+            font-size: 1rem;
+            color: white;
+            transition: 250ms;
+            text-transform: capitalize;
+        }
+
+        header ul li a:hover{
+            color: rgb(224, 224, 71);
+        }
+        .sticky{
+            background: rgba(255, 255, 255, 0.99);
+            box-shadow: 6px 6px 20px rgba(0,0,0,0.123);
+            backdrop-filter: blur(20px);
+        }
+
+        .sticky li a{
+            color: white;
+        }
+        .sticky li a:hover{
+            color: rgb(135, 135, 11);
+        }
+        .sticky .logo{
+            color: inherit;
+        }
+        .home-page{
+            width: 100%;
+            height: 100vh;
+            background-image: url(img/web-design-dark-developer.jpg);
+            background-color: #000;
+            background-position: center;
+            background-size: cover;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; 
+        }
+        .menu-on{
+            background: url(img/hamburger-button-computer-icons-menu-navigation-vector.jpg);
+            width: 25px;
+            height: 25px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+            transition: 250ms ease-in-out;
+            z-index: 2;
+        }
+
+        .menu-off{
+            padding: 9px;
+            background: url(img/close.jpg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            transition: 250ms ease-in-out;
+        }
+        .card{
+            padding: 20px;
+            width: 95%;
+            border-radius: 5px;
+            backdrop-filter: blur(20px);
+        }
+        .card h2{
+            text-transform: uppercase;
+            line-height: 1.3;
+            margin-bottom: 10px;
+            color: rgb(224, 224, 71);
+            font-size: 2rem;
+        }
+        .btn{
+            margin-top: 20px;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 250ms;
+            background: rgb(224, 224, 71);
+        }
+        .btn:hover{
+            opacity: 0.5;
+        }
+        .row{
+            flex-direction: column;
+        }
+        @media screen and (min-width:700px){
+            .nav-links{
+                display: flex;
+                flex-direction: row;
+                position: unset;
+                width: auto;
+                height: auto;
+                background: none;
+            }
+            header ul{
+                display: flex;
+            }
+
+            header ul li{
+                margin: 0;
+            }
+            header ul li a{
+                padding: 0;
+                margin: 5px 10px;
+                font-size: 1.2rem;
+            }
+            .menu-on{
+                display: none;
+            }
+
+            .logo{
+                font-size: 30px;
+            }
+            .home-page{
+                justify-content: center;
+                align-items: flex-end;
+            }
+            .card{
+                padding: 20px;
+                background: none;
+                width: 45%;
+                backdrop-filter: none;
+            }
+            .card p{
+                font-size: 20px;
+            }
+            .sticky li a{
+                color: black;
+            }
+            .row{
+                margin-top: 5%;
+                display: flex;
+                justify-content: space-between;
+            }    
+        }
+        .head{
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            padding-top: 100px; 
+        }
+        .head h1{
+            font-size: 38px;
+            font-weight: 600;
+        }
+        .head p{
+            color: #777;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 22px;
+            padding: 10px;
+        }
+        .row{
+            flex-direction: row;
+        }
+
+        .head-col{
+            flex-basis:31% ;
+            background: #e3f0d3;
+            border-radius: 10px;
+            margin-bottom: 5%;
+            padding: 20px 12px;
+            box-sizing: border-box;
+            transition: 0.5s;
+        }
+        h3{
+            font-size: 20px;
+            text-align: center;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+        .head-col:hover{
+            box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+
+        }
+        /*table section*/
+        .table-section{
+            height: 650px;
+            padding-left: 300px;   
+        }
+        table{
+            width: 100%;
+            table-layout: fixed;
+            max-width: 700px;
+            border-collapse: collapse;
+        }
+        thead th{
+            position: sticky;
+            top: 0;
+            background-color: #f6f9fc;
+            color: #85a584;
+            font-size: 15px;
+        }
+
+        th, td {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 20px;
+            word-break: break-all;
+            text-align: center;
+            text-transform: capitalize;
+        }
+        td img{
+            height: 50px;
+            width: 50px;
+            object-fit: cover;
+
+        }
+        tr:hover td{
+            color: rgb(135, 135, 11);
+            cursor: pointer;
+            background-color: #f6f9fc;
+        }
+
+        @media (max-width:980px){
+            table{
+            min-width: 500px;
+            }
+            .table-section{
+                padding: 15px;
+            }
+            
+        }
+
+        .table h3{
+            text-transform: capitalize;
+            font-size: 30px;
+        }
+
+        /* features */
+
+        .features{
+            width: 80%;
+        margin: auto;
+        margin-top: 300px;
+            text-align: center;
+            padding-top: 50px; 
+        }
+        .features-col{
+            flex-basis: 32%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        .features-col img{
+            width: 100%;
+            display: block;
+            height: 350px;
+        }
+        .features h1{
+            font-size: 38px;
+            font-weight: 600;
+        }
+        .layer{
+            background: transparent;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top:0;
+            left:0;
+            transition: 0.5s;
+            color: white;
+            
+        }
+
+        .layer p{
+            backdrop-filter: blur(20px);
+            font-size: 20px;
+        }
+        .layer:hover {
+            opacity: 0.9;
+            background-color: #e3f0d3;
+            color: #000;
+        }
+
+
+
+        /* registration */
+
+        .reg-col{
+            flex-basis:31% ;
+            margin-bottom: 5%;
+            padding: 20px 12px;
+            box-sizing: border-box;
+            transition: 0.5s;
+        }
+        .card-reg{
+            padding: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container{
+            max-width: 700px;
+            width: 100%;
+            background: #e6e9df;
+            padding: 25px 30px;
+            border-radius: 10px;
+        }
+
+        .container .title{
+            font-size: 25px;
+            font-weight: 600;
+        }
+
+        .container form .user-info{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+        }
+
+        form .user-info .input-box{
+            width: calc(100%/2 - 10px);
+        }
+        .user-info .input-box .details{
+            display: block;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        .user-info .input-box input{
+            height: 45px;
+            width: 100%;
+            border-radius: 10px;
+            outline: none;
+            border: 1px solid #ccc;
+            padding-left: 15px;
+            font-size: 16px;
+            border-bottom-width: 2px;
+        }
+
+        .user-info .input-box input:focus,
+        .user-info .input-box input:valid{
+            border-color: rgb(135, 135, 11);
+        }
+
+        form .gender .g-title{
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        form .gender .category{
+            display: flex;
+            justify-content: space-around;
+            width: 80%;
+            margin: 14px 0;
+            
+        }
+        .gender .category label{
+            display: flex;
+            align-items: center;
+        }
+        .gender .category .dot{
+            height: 18px;
+            width: 18px;
+            background: #d9d9d9;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 5px solid transparent;
+            transition: all 0.3s ease;
+        }
+        #dot1:checked ~ .category .one,
+        #dot2:checked ~ .category .two{
+            border-color: #d9d9d9;
+            background: #000;
+        }
+        form input[type="radio"]{
+            display: none;
+        }
+
+        form .button{
+            height: 35px;
+            margin: 45px 0;
+        }
+
+        form .button input{
+            height: 100%;
+            width: 100%;
+            outline: none;
+            border: none;
+            font-size: 18px;
+            background: #b4c2a3;
+            letter-spacing: 1px;
+            font-weight: 600;
+            border-radius: 10px;
+        }
+        form .button input:hover{
+            background: #96a485;
+        }
+        @media (max-width: 564px){
+            .container{
+                max-width: 100%;  
+            }
+           .card-reg{
+            min-width: 480px;
+           }
+            form .user-info .input-box{
+                width: 100%;
+            }
+        }
+        
+
+        /* About us */
+
+        .about{
+            width: 100%;
+            text-align: center;
+            padding: 30px 0;
+        }
+        .about h4{
+            margin-bottom: 25px;
+            margin-top: 20px;
+            font-weight: 600;
+            font-size: 30px;
+        }
+        .about p{
+            font-size: 23px;
+        }
+
+        @media (max-width: 564px){
+            .about p{
+                font-size: 18px;
+            } 
+        }
+        /* Footer */
+        .footer{
+            background-color: #605050;
+            width: 100%;
+        }
+        .footer h3{
+            font-size: 30px;
+            font-weight: 700;
+        }
+        .icon-section{
+            display: flex;
+            justify-content: center;
+        }
+        .icon-section a{
+            padding: 5px;
+            text-decoration: none;
+            background-color: white;
+            margin: 10px;
+            border-radius: 50%;
+        }
+        .icon-section a:hover{
+            background-color: #85a584;
+        }
+        .footerbottom{
+            padding: 20px;
+            text-align: center;
+        }
+        .footerbottom p{
+            color: white;
+        }
+        .designer{
+            text-transform: uppercase;
+            opacity: 0.7;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <!--  navigation -->
+    <header>
+        <a href="#" class="logo"><img src="img/computer.png" alt="" width="50px" height="40px">yo</a>
+        <div class="menu-on"> </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#course">course</a></li>
+                <li><a href="#register">register</a></li>
+                <li><a href="#about_us">about us</a></li>
+            </ul>
+       
+    </header>
+
+
+
+    <!-- first section -->
+    <section class="home-page">
+        <div class="card">
+            <h2>learn web development</h2>
+            <p>Learn in-demand skills, join a world-renowned community and kick-start your career in tech. Study from anywhere with a learning schedule designed for you.</p>
+
+            <a href="#register"><button class="btn">Register Now</button></a>
+
+        </div>
+    </section>
+
+
+     
+    <section class="head">
+        <h1>Master the fundamental skills of a web developer</h1>
+        <div class="row">
+            <div class="head-col">
+                <h3>Learn software fundamentals and databases</h3>
+                <p>Grasp programming foundations, write robust code with object-oriented programming and build MVC software from scratch. Master relational databases and SQL.</p>
+            </div>
+            <div class="head-col">
+                <h3>Master front-end development & web design</h3>
+                <p>Develop responsive web pages with HTML and CSS. Master modern JavaScript and all the tools and environment like Webpack and Node.js.</p>
+            </div>
+            <div class="head-col">
+                <h3>Adopt best-in-class development workflow</h3>
+                <p>Understand product development tools & workflow. Validate your UX on Figma, organise team work and collaborate on GitHub. Cover your code with automated testing and continuous integration.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Table section-->
+   
+    <main class="table" id="course">
+        
+            <h3>Learn the most in-demand skills</h3>
+            <div class="table-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>course id</th>
+                        <th>course image</th>
+                        <th>course name</th>
+                        <th>duration</th>
+                        <th>instructor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><img src="img/html.png" alt=""></td>
+                        <td>HTML</td>
+                        <td>2 weeks</td>
+                        <td>tomas</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><img src="img/css.png" alt=""></td>
+                        <td>CSS</td>
+                        <td>2 weeks</td>
+                        <td>elsa</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><img src="img/JavaScript.png" alt=""></td>
+                        <td>javaScript</td>
+                        <td>4 weeks</td>
+                        <td>daniel</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><img src="img/tailwind.png" alt=""></td>
+                        <td>tailwindcss</td>
+                        <td>2 weeks</td>
+                        <td>david</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><img src="img/react.png" alt=""></td>
+                        <td>react</td>
+                        <td>4 weeks</td>
+                        <td>abel</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><img src="img/python.jfif" alt=""></td>
+                        <td>python</td>
+                        <td>8 weeks</td>
+                        <td>anna</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td><img src="img/nodejs1.png" alt=""></td>
+                        <td>nodejs</td>
+                        <td>4 weeks</td>
+                        <td>emma</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td><img src="img/mysql.png" alt=""></td>
+                        <td>mysql</td>
+                        <td>6 weeks</td>
+                        <td>daniel</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td><img src="img/git.png" alt=""></td>
+                        <td>git & github</td>
+                        <td>3 weeks</td>
+                        <td>emma</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td><img src="img/api.png" alt=""></td>
+                        <td>api</td>
+                        <td>2 weeks</td>
+                        <td>helen</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td><img src="img/cloud.jpg" alt=""></td>
+                        <td>cloud computing</td>
+                        <td>3 weeks</td>
+                        <td>helen</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    </main>
+
+
+
+    <section class="features">
+        <h1>An immersive online program that accelerates
+            your tech skills in weeks</h1>
+        
+        <div class="row">
+            <div class="features-col">
+                <img src="img/lectures.jpg" >
+                <div class="layer">
+                    <h3>Lectures</h3>
+                    <hr>
+                    <p>Tune in to engaging lectures, illustrating key concepts with lots of practical examples, before putting what you’ve learnt into practice.</p>
+                </div>
+            </div>
+            <div class="features-col">
+                <img src="img/challenges.jpg" >
+                <div class="layer">
+                    <h3>Challenges</h3>
+                    <hr>
+                    <p>Pair up with your buddy to work on a series of programming challenges with the help of our teaching staff.</p>
+                </div>
+            </div>
+            <div class="features-col">
+                <img src="img/live.jpg" >
+                <div class="layer">
+                    <h3>Live Code</h3>
+                    <hr>
+                    <p>Join an interactive coding session with one of our experienced teachers & solve problems together with your class.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="head"  id="register">
+        <h1>How to apply to our Web Development online course</h1>
+        <div class="row">
+            <div class="reg-col">
+                <h3>1.No prerequisites</h3>
+                <p>The Web Development course is beginner-friendly, with no prerequisites required. What counts for us is that you’re motivated to start your new tech journey.</p>
+            </div>
+            <div class="reg-col">
+                <h3>2.Book an interview with our enrolment advisor</h3>
+                <p>When you apply, we’ll get back to you to schedule a 30 minute video interview. We'll talk about your professional background and your motivation.</p>
+            </div>
+            <div class="reg-col">
+                <h3>3.Pass our technical quiz</h3>
+                <p>You will take a technical quiz to assess your coding knowledge and your ability to learn.</p>
+            </div>
+        </div>
+    </section>
+
+    <!--  Register form-->
+
+    <section class="card-reg">
+        <div class="container">
+        <div class="title">Registration Form</div>
+        <hr>
+        <form action="">
+            <div class="user-info">
+                <div class="input-box">
+                    <span class="details">First Name</span>
+                    <input type="text" placeholder="Enter your first name" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Last Name</span>
+                    <input type="text" placeholder="Enter your last name" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Email</span>
+                    <input type="text" placeholder="Enter your email" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Username</span>
+                    <input type="text" placeholder="Enter your username" required>
+                </div>
+                
+                <div class="input-box">
+                    <span class="details">Passward</span>
+                    <input type="text" placeholder="Enter your passward" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Confirm password</span>
+                    <input type="text" placeholder="Confirm passward" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Phone number</span>
+                    <input type="text" placeholder="Enter your number" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Age</span>
+                    <input type="number" placeholder="Enter your Age" required  min="15">
+                </div>
+            </div>
+
+            <div class="gender">
+                <input type="radio" name="gender" id="dot1">
+                <input type="radio" name="gender" id="dot2">
+                <div class="g-title">Gender</div>
+
+                <div class="category">
+                    <label for="dot1">
+                        <span class="dot one"></span>
+                        <span class="gender-c">Male</span>
+                    </label>
+                    <label for="dot2">
+                        <span class="dot two"></span>
+                        <span class="gender-c">Female</span>
+                    </label>
+                </div>
+                
+            </div>
+
+            <div class="button">
+                <input type="submit" value="Register">
+            </div>
+        </form>
+    </div>
+
+    </section>
+
+
+
+    <!-- About us-->
+
+    <section class="about" id="about_us">
+        <h4>ABOUT US</h4>
+        <p>We partner with more than 20 leading universities and companies to bring flexible, <br> job-relevant online learning to individuals and organizations worldwide. <br>We offer a range of learning opportunities—from hands-on projects and <br>courses to job-ready certificates and degree programs.</p>
+       
+        
+    </section>
+
+
+    <!-- Footer  -->
+    <section class="footer">
+        <h3>Follow us</h3>
+        <div class="icon-section">
+            <a href=""><img src="img/facebook.png" width="20px" height="20px" alt=""></a>
+            <a href=""><img src="img/instagram.png" width="20px" height="20px" alt=""></a>
+            <a href=""><img src="img/linkedln.png" width="20px" height="20px" alt=""></a>
+            <a href=""><img src="img/twitter.png" width="19px" alt=""></a>
+            <a href=""><img src="img/youtube.jpg" width="20px" alt=""></a>
+        </div>
+        <div class="footerbottom">
+            <p>Copyright &copy; 2023; designed by <span class="designer">yordanos</span></p>
+        </div>
+        
+    </section>
+
+</body>
+<script>
+    const header = document.querySelector("header");
+    const menu = document.querySelector(".menu-on");
+    const navLinks = document.querySelector(".nav-links");
+    let menuOpen = false
+    window.addEventListener("scroll", function(){
+        header.classList.toggle("sticky", window.scrollY > 0)
+    })
+    menu.addEventListener("click", function(){
+        if(!menuOpen){
+            navLinks.classList.toggle("show-navlinks");
+            menu.classList.toggle("menu-off")
+        } else {
+            navLinks.classList.remove("show-navlinks");
+            menu.classList.remove("menu-off")
+            menuOpen = false
+        }
+    })
+</script>
+</html>
